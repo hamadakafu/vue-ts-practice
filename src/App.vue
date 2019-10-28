@@ -1,35 +1,32 @@
 <template>
-  <div class="app">
-    <!-- greetプロパティに"hello"を設定する
-    <MyButton greet="hello"></MyButton> 
-    -->
-    <!-- binding する App.greetTextをMybuttonのgreetに使う 
-      上位にあるコンポーネントの値を使っている
-      下にあるMyButtonは上のApp.greetTextを監視しているので変更を検知できる。
-      上位にあるコンポーネントのプロパティを更新したい場合は、Emitで上位の関数を呼び出す
-    -->
-    <MyButton :greet="greetText" geeee="geijfaojwao" @clicked="onMyButtonClicked"></MyButton> 
-    <ResetButton v-model="greetText"></ResetButton> 
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
-<script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator'
-  import MyButton from "./components/MyButton.vue"
-  import ResetButton from "./components/ResetButton.vue"
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-  @Component({
-    components: {
-      MyButton,
-      ResetButton,
-    },
-  })
+#nav {
+  padding: 30px;
+}
 
-  export default class App extends Vue{
-    public greetText: string = "hoge"
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
 
-    public onMyButtonClicked() {
-      this.greetText = "こんにちわ"
-    }
-  }
-</script>
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>

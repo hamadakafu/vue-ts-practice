@@ -29,3 +29,6 @@ public input(value)
 両者とも、booleanでDOMを表示するかをコントロールするが、
 v-showは非表示の間にもデータを保持し、cssで見せるか見せないかの切り替えをする。
 v-showは必ず初期化をするが、v-ifはtrueになるまで、初期化されない
+
+## routerの追加
+`vue add router`

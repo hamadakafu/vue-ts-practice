@@ -11,8 +11,8 @@
   export default class ResetButton extends Vue {
     public initialValue!: string 
   
-    // 初期化の際に必要かどうか
-    // @Prop({required: true})
+    // // 初期化の際に必要かどうか
+    // // @Prop({required: true})
     @Prop()
     public value!: string
   
