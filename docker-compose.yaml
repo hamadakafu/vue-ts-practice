@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  server:
+    build: ./server
+    ports:
+      - 50051:50051
+  envoy:
+    build: ./envoy
+    ports:
+      - "8081:8080"
+      - "9901:9901"
+

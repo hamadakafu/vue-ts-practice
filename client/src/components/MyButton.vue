@@ -14,11 +14,18 @@
       <button @click="onSubmit" v-bind:disabled="invalid()">Submit</button>
       <p>{{ inputText }}</p>
     </div>
+    <div>
+      <input type="text" v-model="manyInputText" placeholder="many input text"/>
+      <button @click="onManySubmit" v-bind:disabled="this.manyInputText.length === 0">Submit</button>
+      <p>{{ inputText }}</p>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Emit, Prop, Vue} from "vue-property-decorator"
+import {HelloPromiseClient} from "@/pb/sample_grpc_web_pb"
+import {Request, Response} from "@/pb/sample_pb"
 
 @Component
 export default class MyButton extends Vue {
@@ -29,13 +36,21 @@ export default class MyButton extends Vue {
   public geeee: string = "geeee"
   
   inputText: string = ""
+  manyInputText: string = ""
 
   comments: string[] = []
   
   public isok: boolean = false
 
+  helloClient: HelloPromiseClient
+
   invalid(): boolean {
     return this.inputText.length === 0
+  }
+
+  constructor() {
+    super()
+    this.helloClient = new HelloPromiseClient('http://' + window.location.hostname + ':8081', null, null);
   }
   
   //この関数の実行直後に親の紐付けたプロパティが呼ばれる
@@ -57,8 +72,23 @@ export default class MyButton extends Vue {
   }
 
   onSubmit() {
-    this.comments.push(this.inputText)
+    let req = new Request()
+    req.setName(this.inputText)
+    this.helloClient.oneHello(req).then((res) => {
+      this.comments.push(res.getMessage())
+    }).catch((err) => {
+      console.log(err)
+    }); 
     this.inputText = ""
+  }
+
+  onManySubmit() {
+    let req = new Request()
+    req.setName(this.manyInputText)
+    let stream = this.helloClient.manyHello(req)
+    stream.on('data', (res: Response) => {
+      this.comments.push(res.getMessage())
+    })
   }
 }
 </script>
