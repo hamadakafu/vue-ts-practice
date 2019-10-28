@@ -11,7 +11,7 @@
     </ul>
     <div>
       <input type="text" v-model="inputText" placeholder="goe"/>
-      <button @click="onSubmit">Submit</button>
+      <button @click="onSubmit" v-bind:disabled="invalid()">Submit</button>
       <p>{{ inputText }}</p>
     </div>
   </div>
@@ -33,6 +33,10 @@ export default class MyButton extends Vue {
   comments: string[] = []
   
   public isok: boolean = false
+
+  invalid(): boolean {
+    return this.inputText.length === 0
+  }
   
   //この関数の実行直後に親の紐付けたプロパティが呼ばれる
   // 引数を渡すことも可能

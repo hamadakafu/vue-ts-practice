@@ -21,6 +21,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  // シャープがなくなる
+  mode:'history',
   routes
 })
 

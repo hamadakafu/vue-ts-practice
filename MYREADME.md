@@ -32,3 +32,6 @@ v-showは必ず初期化をするが、v-ifはtrueになるまで、初期化さ
 
 ## routerの追加
 `vue add router`
+
+## v-bind:<hoge> = "値"
+hogeにはtag内のプロパティを指定して、そのプロパティの値を値で管理するという意味
