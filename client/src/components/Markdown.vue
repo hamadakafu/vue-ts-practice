@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import marked from 'marked'
 
 @Component({
   head: {

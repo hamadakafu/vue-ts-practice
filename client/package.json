@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "@types/google-protobuf": "^3.7.2",
+    "@types/marked": "^0.6.5",
     "buefy": "^0.8.6",
     "core-js": "^3.3.2",
     "google-protobuf": "^3.10.0",
     "grpc-web": "^1.0.6",
+    "marked": "^0.7.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-head": "^2.1.2",
