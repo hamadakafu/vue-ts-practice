@@ -86,6 +86,19 @@ ref: <https://qiita.com/zaru/items/e40eaa8a48688d1928f6>
 ## computed in TypeScript
 getterとsetterとして記述することでcomputedプロパティを表すことができる。
 
+## component
+@Propは
+```ts
+@Prop someText: string
+```
+と書くことで例のように、属性を記述することができる。
+```html
+<MyComponent someText="hgoeehgoe"></MyComponent>
+```
+
+## vueのライフサイクル
+ちゃんと理解しておく必要がある。
+
 # vue router
 ページが切り替わるたびにコンポーネントはもう一度作られる値を維持することはできない
 
