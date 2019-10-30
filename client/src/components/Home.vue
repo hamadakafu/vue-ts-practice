@@ -1,19 +1,15 @@
 <template>
   <div>
-    <MyButton :greet="greetText" geeee="geeee" @clicked="myClicked"></MyButton>
-    <ResetButton v-model="greetText"></ResetButton>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator'
-import MyButton from '@/components/MyButton.vue'
-import ResetButton from '@/components/ResetButton.vue'
+import ButtonSample from '@/components/ButtonSample.vue'
+import TextSample from '@/components/TextSample.vue'
   
 @Component({
   components: {
-    MyButton,
-    ResetButton,
   }
 })
 export default class Home extends Vue {
