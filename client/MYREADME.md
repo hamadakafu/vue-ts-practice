@@ -99,6 +99,15 @@ getterとsetterとして記述することでcomputedプロパティを表すこ
 ## vueのライフサイクル
 ちゃんと理解しておく必要がある。
 
+## this.$hoge
+したのように書くと、`this.$router`や`this.$render`が使える
+```ts
+new Vue({
+  router,
+  render: h=>h(App)
+})
+```
+
 # vue router
 ページが切り替わるたびにコンポーネントはもう一度作られる値を維持することはできない
 
